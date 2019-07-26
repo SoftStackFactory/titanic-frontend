@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SurvivorService } from './survivor.service'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'titanic';
+  constructor ( public survivor: SurvivorService){
+    console.log(this.survivor.baseUrl)
+  }
+
 }
