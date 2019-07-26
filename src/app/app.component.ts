@@ -10,6 +10,7 @@ export class AppComponent {
   title = "titanic";
   user = { gender: null, age: null, was_alone: null };
   constructor(public survivor: SurvivorService) {}
+  result = undefined;
 
   prediction() {
     let user = {
@@ -19,6 +20,8 @@ export class AppComponent {
     };
     console.log(user, "my user", this.user);
 
-    this.survivor.getPrediction(user).subscribe(res => console.log(res));
+    this.survivor.getPrediction(user).subscribe(res => {
+      this.result = res;
+      console.log(res)});
   }
 }

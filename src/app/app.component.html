@@ -1,8 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>Welcome to Titanic Survival!</h1>
+  <img class="titanic" src="https://www.lashistorias.com.mx/wp-content/uploads/2017/07/the-sinking-of-the-rms-titanic-1024x527.jpg">
+  <h3> What are your odds? </h3>
 </div>
 
+<div class="input">
 <clr-radio-container>
   <label>Gender</label>
   <clr-radio-wrapper>
@@ -11,7 +14,7 @@
       clrRadio
       name="gender"
       required
-      value="1"
+      value="0"
       [(ngModel)]="user.gender"
     />
     <label>Male</label>
@@ -22,7 +25,7 @@
       clrRadio
       name="gender"
       required
-      value="0"
+      value="1"
       [(ngModel)]="user.gender"
     />
     <label> Female</label>
@@ -54,4 +57,11 @@
     <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
   </div>
   <button (click)="prediction()" class="btn btn-primary">Get Prediction</button>
+</div>
+
+<div *ngIf="result" class="show-results">
+<p *ngIf="result.result === 'survived'"> You {{result.result}} with a chance of {{result.chance}}</p>
+<p *ngIf="result.result !== 'survived'"> You died with a chance of {{result.chance}}</p>
+</div>
+
 </div>
