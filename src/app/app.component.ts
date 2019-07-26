@@ -8,7 +8,7 @@ import { SurvivorService } from "./survivor.service";
 })
 export class AppComponent {
   title = "titanic";
-  user = {};
+  user = { gender: null, age: null, was_alone: null };
   constructor(public survivor: SurvivorService) {}
 
   prediction() {
