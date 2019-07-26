@@ -12,7 +12,13 @@ export class AppComponent {
   constructor(public survivor: SurvivorService) {}
 
   prediction() {
-    this.survivor.getPrediction(this.user).subscribe(res => console.log(res));
+    let user = {
+      gender: this.gender(this.user.gender),
+      was_alone: this.alone(this.user.was_alone),
+      age: this.user.age
+    };
+
+    this.survivor.getPrediction(user).subscribe(res => console.log(res));
   }
 
   gender(gender) {
