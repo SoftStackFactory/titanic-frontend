@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ENV } from  '@app/env';
+
 @Injectable({
   providedIn: 'root'
 })
 export class SurvivorService {
-  baseUrl: string = "https://titanic-model-demo.herokuapp.com/" 
+  baseUrl: string = ENV.baseUrl
   constructor(private http: HttpClient) { }
 
   getPrediction( person ){
