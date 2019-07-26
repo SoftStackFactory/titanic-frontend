@@ -4,7 +4,7 @@
 
 export const ENV = {
   production: false,
-  baseUrl: "https://titanic-model-demo.herokuapp.com/"
+  baseUrl: "https://titanic-model-demo.herokuapp.com"
 };
 
 /*
