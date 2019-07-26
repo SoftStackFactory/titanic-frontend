@@ -5,6 +5,7 @@ import { FormsModule }    from '@angular/forms'
 import { AppComponent } from './app.component';
 import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     ClarityModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule, 
+    HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]
