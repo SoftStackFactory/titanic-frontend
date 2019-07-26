@@ -13,19 +13,12 @@ export class AppComponent {
 
   prediction() {
     let user = {
-      gender: this.gender(this.user.gender),
-      was_alone: this.alone(this.user.was_alone),
+      gender: parseInt(this.user.gender),
+      was_alone: parseInt(this.user.was_alone),
       age: this.user.age
     };
+    console.log(user, "my user", this.user);
 
     this.survivor.getPrediction(user).subscribe(res => console.log(res));
-  }
-
-  gender(gender) {
-    return gender === "male" ? 1 : 0;
-  }
-
-  alone(alone) {
-    return alone ? 1 : 0;
   }
 }

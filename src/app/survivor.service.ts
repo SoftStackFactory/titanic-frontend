@@ -11,10 +11,6 @@ export class SurvivorService {
 
   getPrediction(person) {
     console.log(this.baseUrl);
-    return this.http.post(`${this.baseUrl}/predict`, {
-      was_alone: 1,
-      age: 15,
-      gender: 1
-    });
+    return this.http.post(`${this.baseUrl}/predict`, person);
   }
 }
