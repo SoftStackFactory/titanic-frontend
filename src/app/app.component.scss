@@ -1,14 +1,14 @@
-h1{
-
-}
 img.titanic{
-  width: 70%;
-  height: 50%;
+  width: 60%;
+  height: 40%;
 }
 div.input{
   display: flex;
   flex-direction: column;
-  position: relative;
-  left: 15%;
-  top: 5%;
+  // position: relative;
+  // left: 15%;
+  // top: 5%;
+}
+div.flex-item{
+  align-self:center;
 }

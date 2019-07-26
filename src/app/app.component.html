@@ -6,6 +6,7 @@
 </div>
 
 <div class="input">
+  <div class="flex-item">
 <clr-radio-container>
   <label>Gender</label>
   <clr-radio-wrapper>
@@ -30,9 +31,10 @@
     />
     <label> Female</label>
   </clr-radio-wrapper>
-  <clr-control-helper>Helper text</clr-control-helper>
+  <!-- <clr-control-helper>Helper text</clr-control-helper> -->
   <clr-control-error>This field is required!</clr-control-error>
 </clr-radio-container>
+ <br>
 <label>Are you alone?</label>
 <clr-radio-wrapper>
   <input
@@ -44,6 +46,7 @@
     [(ngModel)]="user.was_alone"
   />
 </clr-radio-wrapper>
+ <br>
 <label for="basic" class="clr-control-label">Your Age</label>
 <div class="clr-control-container">
   <div class="clr-input-wrapper">
@@ -57,9 +60,10 @@
     <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
   </div>
   <button (click)="prediction()" class="btn btn-primary">Get Prediction</button>
+  </div>
 </div>
 
-<div *ngIf="result" class="show-results">
+<div *ngIf="result" class="show-results flex-item">
 <p *ngIf="result.result === 'survived'"> You {{result.result}} with a chance of {{result.chance}}</p>
 <p *ngIf="result.result !== 'survived'"> You died with a chance of {{result.chance}}</p>
 </div>
