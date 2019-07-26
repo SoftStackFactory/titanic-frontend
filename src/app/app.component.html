@@ -41,10 +41,20 @@
     type="radio"
     clrRadio
     name="alone"
-    required
+    value="0"
+    [(ngModel)]="user.was_alone"
+  />
+  <label>No</label>
+</clr-radio-wrapper>
+   <clr-radio-wrapper>
+  <input
+    type="radio"
+    clrRadio
+    name="alone"
     value="1"
     [(ngModel)]="user.was_alone"
   />
+   <label>Yes</label>
 </clr-radio-wrapper>
  <br>
 <label for="basic" class="clr-control-label">Your Age</label>
