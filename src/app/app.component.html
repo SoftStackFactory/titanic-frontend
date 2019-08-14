@@ -5,23 +5,23 @@
     <img class="titanic"
       src="https://www.lashistorias.com.mx/wp-content/uploads/2017/07/the-sinking-of-the-rms-titanic-1024x527.jpg">
   </div>
-  <!-- End Div class="left"-->
 
   <div class="right">
     <h3 id="odds">What are your odds?</h3>
     <div class="flex-item">
 <!-- <form #myForm submit="mySubmit(myForm)"> -->
+    <form clrForm>
         <clr-radio-container>
           <label>Gender</label>
           <clr-radio-wrapper>
-            <input type="radio" clrRadio name="gender" required value="0" [(ngModel)]="user.gender" />
+            <input type="radio" required clrRadio name="gender" required value="0" [(ngModel)]="user.gender" />
             <label>Male</label>
           </clr-radio-wrapper>
           <clr-radio-wrapper>
-            <input type="radio" clrRadio name="gender" required value="1" [(ngModel)]="user.gender" />
+            <input type="radio" required clrRadio name="gender"  value="1" [(ngModel)]="user.gender" />
             <label>Female</label>
           </clr-radio-wrapper>
-          <clr-control-error>This field is required!</clr-control-error> <!-- not working -->
+          <clr-control-error>This field is required!</clr-control-error>
         </clr-radio-container>
 
         <br>
@@ -29,37 +29,31 @@
         <clr-radio-container>
           <label>Are you alone?</label>
           <clr-radio-wrapper>
-            <input type="radio" clrRadio name="alone" value="0" [(ngModel)]="user.was_alone" />
+            <input type="radio" required clrRadio name="alone" value="0" [(ngModel)]="user.was_alone" />
             <label>No</label>
           </clr-radio-wrapper>
           <clr-radio-wrapper>
-            <input type="radio" clrRadio name="alone" value="1" [(ngModel)]="user.was_alone" />
+            <input type="radio" required clrRadio name="alone" value="1" [(ngModel)]="user.was_alone" />
             <label>Yes</label>
           </clr-radio-wrapper>
-          <clr-control-error>This field is required!</clr-control-error> <!-- not working -->
+          <clr-control-error>This field is required!</clr-control-error>
         </clr-radio-container>
 
         <br>
 
-        <div class="clr-control-container">
+        <div class="clr-control-container clr-error">
           <label for="basic" class="clr-control-label">Your Age</label>
           <div class="clr-input-wrapper">
-            <input type="number" id="basic" placeholder="Enter value here" class="clr-input" [(ngModel)]="user.age" />
+            <input type="number" id="basic" placeholder="Enter value here" class="clr-input" name="age" [(ngModel)]="user.age" />
             <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
-            <clr-control-error>This field is required!</clr-control-error> <!-- not working -->
+            <clr-control-error>This field is required!</clr-control-error>
           </div>
-          <button (click)="prediction()" class="btn btn-primary">Get Prediction</button>
         </div>
+        <button (click)="prediction()" class="btn btn-primary">Get Prediction</button>
+    </form>
     </div>
   </div>
-  <!-- End Div class="right"-->
+
 </div>
 
-<div *ngIf="result" class="show-results flex-item">
-  <p *ngIf="result.result === 'survived'"> You {{result.result}} with a chance of {{result.chance}}</p>
-  <p *ngIf="result.result !== 'survived'"> You died with a chance of {{result.chance}}</p>
-</div>
-
-<!-- <app-modal (close)='modalClose($event)' [opened]='isModalOpen'></app-modal> -->
-<!-- <app-modal (close)='modalClose()' [opened]='isModalOpen'></app-modal> -->
-<app-modal [(opened)]='isModalOpen' [predictionResult]='result' (openedChange)="resetUser()"></app-modal>
+<app-modal [(opened)]='isModalOpen' [prediction]='result' (openedChange)="resetUser()"></app-modal>

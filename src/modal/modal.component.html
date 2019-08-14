@@ -1,11 +1,14 @@
-<clr-modal [(clrModalOpen)]="opened" (clrModalOpenChange)="onClose()"  [clrModalStaticBackdrop]="false"> <!-- cant have [clrModalClosable]="false" prop -->
-<!-- <clr-modal [(clrModalOpen)]="opened" (clrModalOpenChange)="onClose()" [clrModalClosable]="false" [clrModalStaticBackdrop]="false"> clrModalStaticBackdrop set to false should make the modal disapear when someone clicks outside modal -->
-    <h3 class="modal-title">You {{predictionResult.result}} with a chance of {{predictionResult.chance}}</h3>
-    <div class="modal-body">
-        <img *ngIf="predictionResult.result === 'survived'" src="../assets/survived.jpg" alt="image of Rose and Jack floating in the ocean on a piece of wood">
-        <img *ngIf="predictionResult.result !== 'survived'" src="../assets/died.gif" alt="clip of jack sinking in the ocean">
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="onClose()">Close</button> <!-- reset the inputs to undefined -->
-    </div>
-</clr-modal>
+<ng-container *ngIf="prediction">
+	<clr-modal [(clrModalOpen)]="opened" (clrModalOpenChange)="onClose()" [clrModalStaticBackdrop]="false">
+		<div class="modal-title">
+			<h3>You {{prediction.result}} with a chance of {{prediction.chance}}</h3>
+		</div>
+		<div class="modal-body">
+			<img *ngIf="prediction.result === 'survived'" src="../assets/survived.jpg" alt="image of Rose and Jack floating in the ocean on a piece of wood">
+      <img *ngIf="prediction.result !== 'survived'" src="../assets/died.gif" alt="clip of jack sinking in the ocean">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="onClose()">Close</button>
+      </div>
+  </clr-modal>
+</ng-container>
