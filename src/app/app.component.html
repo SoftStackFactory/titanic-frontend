@@ -1,81 +1,65 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>Welcome to Titanic Survival!</h1>
-  <img class="titanic" src="https://www.lashistorias.com.mx/wp-content/uploads/2017/07/the-sinking-of-the-rms-titanic-1024x527.jpg">
-  <h3> What are your odds? </h3>
-</div>
+<h1 id="header">Welcome to Titanic Survival!</h1>
+<div class="flex-container">
 
-<div class="input">
-  <div class="flex-item">
-<clr-radio-container>
-  <label>Gender</label>
-  <clr-radio-wrapper>
-    <input
-      type="radio"
-      clrRadio
-      name="gender"
-      required
-      value="0"
-      [(ngModel)]="user.gender"
-    />
-    <label>Male</label>
-  </clr-radio-wrapper>
-  <clr-radio-wrapper>
-    <input
-      type="radio"
-      clrRadio
-      name="gender"
-      required
-      value="1"
-      [(ngModel)]="user.gender"
-    />
-    <label> Female</label>
-  </clr-radio-wrapper>
-  <!-- <clr-control-helper>Helper text</clr-control-helper> -->
-  <clr-control-error>This field is required!</clr-control-error>
-</clr-radio-container>
- <br>
-<label>Are you alone?</label>
-<clr-radio-wrapper>
-  <input
-    type="radio"
-    clrRadio
-    name="alone"
-    value="0"
-    [(ngModel)]="user.was_alone"
-  />
-  <label>No</label>
-</clr-radio-wrapper>
-   <clr-radio-wrapper>
-  <input
-    type="radio"
-    clrRadio
-    name="alone"
-    value="1"
-    [(ngModel)]="user.was_alone"
-  />
-   <label>Yes</label>
-</clr-radio-wrapper>
- <br>
-<label for="basic" class="clr-control-label">Your Age</label>
-<div class="clr-control-container">
-  <div class="clr-input-wrapper">
-    <input
-      type="number"
-      id="basic"
-      placeholder="Enter value here"
-      class="clr-input"
-      [(ngModel)]="user.age"
-    />
-    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  <div class="left">
+    <img class="titanic"
+      src="https://www.lashistorias.com.mx/wp-content/uploads/2017/07/the-sinking-of-the-rms-titanic-1024x527.jpg">
   </div>
-  <button (click)="prediction()" class="btn btn-primary">Get Prediction</button>
+  <!-- End Div class="left"-->
+
+  <div class="right">
+    <h3 id="odds">What are your odds?</h3>
+    <div class="flex-item">
+<!-- <form #myForm submit="mySubmit(myForm)"> -->
+        <clr-radio-container>
+          <label>Gender</label>
+          <clr-radio-wrapper>
+            <input type="radio" clrRadio name="gender" required value="0" [(ngModel)]="user.gender" />
+            <label>Male</label>
+          </clr-radio-wrapper>
+          <clr-radio-wrapper>
+            <input type="radio" clrRadio name="gender" required value="1" [(ngModel)]="user.gender" />
+            <label>Female</label>
+          </clr-radio-wrapper>
+          <clr-control-error>This field is required!</clr-control-error> <!-- not working -->
+        </clr-radio-container>
+
+        <br>
+
+        <clr-radio-container>
+          <label>Are you alone?</label>
+          <clr-radio-wrapper>
+            <input type="radio" clrRadio name="alone" value="0" [(ngModel)]="user.was_alone" />
+            <label>No</label>
+          </clr-radio-wrapper>
+          <clr-radio-wrapper>
+            <input type="radio" clrRadio name="alone" value="1" [(ngModel)]="user.was_alone" />
+            <label>Yes</label>
+          </clr-radio-wrapper>
+          <clr-control-error>This field is required!</clr-control-error> <!-- not working -->
+        </clr-radio-container>
+
+        <br>
+
+        <div class="clr-control-container">
+          <label for="basic" class="clr-control-label">Your Age</label>
+          <div class="clr-input-wrapper">
+            <input type="number" id="basic" placeholder="Enter value here" class="clr-input" [(ngModel)]="user.age" />
+            <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+            <clr-control-error>This field is required!</clr-control-error> <!-- not working -->
+          </div>
+          <button (click)="prediction()" class="btn btn-primary">Get Prediction</button>
+        </div>
+    </div>
   </div>
+  <!-- End Div class="right"-->
 </div>
 
 <div *ngIf="result" class="show-results flex-item">
-<p *ngIf="result.result === 'survived'"> You {{result.result}} with a chance of {{result.chance}}</p>
-<p *ngIf="result.result !== 'survived'"> You died with a chance of {{result.chance}}</p>
+  <p *ngIf="result.result === 'survived'"> You {{result.result}} with a chance of {{result.chance}}</p>
+  <p *ngIf="result.result !== 'survived'"> You died with a chance of {{result.chance}}</p>
 </div>
 
-</div>
+<!-- <app-modal (close)='modalClose($event)' [opened]='isModalOpen'></app-modal> -->
+<!-- <app-modal (close)='modalClose()' [opened]='isModalOpen'></app-modal> -->
+<app-modal [(opened)]='isModalOpen' [predictionResult]='result' (openedChange)="resetUser()"></app-modal>
