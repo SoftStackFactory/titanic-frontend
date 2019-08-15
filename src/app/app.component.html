@@ -1,6 +1,5 @@
 <h1 id="header">Welcome to Titanic Survival!</h1>
 <div class="flex-container">
-
   <div class="left">
     <img class="titanic"
       src="https://www.lashistorias.com.mx/wp-content/uploads/2017/07/the-sinking-of-the-rms-titanic-1024x527.jpg">
@@ -9,10 +8,9 @@
   <div class="right">
     <h3 id="odds">What are your odds?</h3>
     <div class="flex-item">
-<!-- <form #myForm submit="mySubmit(myForm)"> -->
-    <form clrForm>
+    <form #userForm="ngForm" clrForm>
         <clr-radio-container>
-          <label>Gender</label>
+          <label class="clr-col-12">Gender</label>
           <clr-radio-wrapper>
             <input type="radio" required clrRadio name="gender" required value="0" [(ngModel)]="user.gender" />
             <label>Male</label>
@@ -21,13 +19,12 @@
             <input type="radio" required clrRadio name="gender"  value="1" [(ngModel)]="user.gender" />
             <label>Female</label>
           </clr-radio-wrapper>
-          <clr-control-error>This field is required!</clr-control-error>
         </clr-radio-container>
 
         <br>
 
         <clr-radio-container>
-          <label>Are you alone?</label>
+          <label class="clr-col-12">Are you alone?</label>
           <clr-radio-wrapper>
             <input type="radio" required clrRadio name="alone" value="0" [(ngModel)]="user.was_alone" />
             <label>No</label>
@@ -36,20 +33,19 @@
             <input type="radio" required clrRadio name="alone" value="1" [(ngModel)]="user.was_alone" />
             <label>Yes</label>
           </clr-radio-wrapper>
-          <clr-control-error>This field is required!</clr-control-error>
         </clr-radio-container>
 
         <br>
 
-        <div class="clr-control-container clr-error">
-          <label for="basic" class="clr-control-label">Your Age</label>
-          <div class="clr-input-wrapper">
-            <input type="number" id="basic" placeholder="Enter value here" class="clr-input" name="age" [(ngModel)]="user.age" />
-            <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
-            <clr-control-error>This field is required!</clr-control-error>
+        <label for="basic" class="clr-col-12 clr-control-label">Your Age</label>
+         <div class="clr-control-container">
+            <div class="clr-input-wrapper">
+              <input  type="number" required id="basic" placeholder="Enter value here" class="clr-input" name="age" [(ngModel)]="user.age" />
+            </div>
           </div>
-        </div>
-        <button (click)="prediction()" class="btn btn-primary">Get Prediction</button>
+
+        <br>
+        <button [disabled]="userForm.form.invalid" (click)="prediction()" class="btn btn-primary">Get Prediction</button>
     </form>
     </div>
   </div>
