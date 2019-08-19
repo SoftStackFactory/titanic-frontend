@@ -1,0 +1,14 @@
+<ng-container *ngIf="prediction">
+	<clr-modal [(clrModalOpen)]="opened" (clrModalOpenChange)="onClose()" [clrModalStaticBackdrop]="false">
+		<div class="modal-title">
+			<h3>You {{prediction.result}} with a chance of {{prediction.chance}}</h3>
+		</div>
+		<div class="modal-body">
+			<img *ngIf="prediction.result === 'survived'" src="../assets/survived.jpg" alt="image of Rose and Jack floating in the ocean on a piece of wood">
+      <img *ngIf="prediction.result !== 'survived'" src="../assets/died.gif" alt="clip of jack sinking in the ocean">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="onClose()">Close</button>
+      </div>
+  </clr-modal>
+</ng-container>

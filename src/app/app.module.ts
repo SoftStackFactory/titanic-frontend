@@ -8,9 +8,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { UserInputComponent } from "./user-input/user-input.component";
 import { LoaderComponent } from "./loader/loader.component";
 import { HttpClientModule } from "@angular/common/http";
+import { ModalComponent } from 'src/modal/modal.component';
 
 @NgModule({
-  declarations: [AppComponent, UserInputComponent, LoaderComponent],
+  declarations: [AppComponent, UserInputComponent, LoaderComponent, ModalComponent],
   imports: [
     BrowserModule,
     ClarityModule,
