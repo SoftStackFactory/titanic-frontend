@@ -1,4 +1,9 @@
-<h1 id="header">Welcome to Titanic Survival!</h1>
+<div class="flex-container-header">
+  <a href="https://www.softstackfactory.com/" target="_blank"><img class="logo" src="./assets/softstack-logo.png"></a>
+</div>
+<div class="flex-container-title">
+  <h1 class="titanic-survival-title">Welcome to Titanic Survival!</h1>
+</div>
 <div class="flex-container">
   <div class="left">
     <img class="titanic"
@@ -6,11 +11,11 @@
   </div>
 
   <div class="right">
-    <h3 id="odds">What are your odds?</h3>
+    <h3 id="odds" style="margin-top: 0px;">What are your odds?</h3>
     <div class="flex-item">
     <form #userForm="ngForm" clrForm>
         <clr-radio-container>
-          <label class="clr-col-12">Gender</label>
+          <label class="clr-col-12 gender" style="text-align:left; padding-bottom: 5%; padding-left:0px;">Gender</label>
           <clr-radio-wrapper>
             <input type="radio" required clrRadio name="gender" required value="0" [(ngModel)]="user.gender" />
             <label>Male</label>
@@ -24,7 +29,7 @@
         <br>
 
         <clr-radio-container>
-          <label class="clr-col-12">Are you alone?</label>
+          <label class="clr-col-12" style="text-align:left; padding-bottom: 5%; padding-left:0px;">Are you alone?</label>
           <clr-radio-wrapper>
             <input type="radio" required clrRadio name="alone" value="0" [(ngModel)]="user.was_alone" />
             <label>No</label>
@@ -37,7 +42,7 @@
 
         <br>
 
-        <label for="basic" class="clr-col-12 clr-control-label">Your Age</label>
+        <label for="basic" class="clr-col-12 clr-control-label" style="text-align:left; padding-bottom: 5%; padding-left:0px;">Your Age</label>
          <div class="clr-control-container">
             <div class="clr-input-wrapper">
               <input  type="number" required id="basic" placeholder="Enter value here" class="clr-input" name="age" [(ngModel)]="user.age" />
@@ -45,11 +50,17 @@
           </div>
 
         <br>
-        <button [disabled]="userForm.form.invalid" (click)="prediction()" class="btn btn-primary">Get Prediction</button>
+        <button [disabled]="userForm.form.invalid" (click)="prediction()" class="btn btn-primary prediction-button">Get Prediction</button>
     </form>
     </div>
   </div>
 
 </div>
+
+<footer>
+  <div class="copyright">
+    <p class="copyright">SoftStack Factory is a 501(c)3 nonprofit company | Copyright 2019 SoftStack Factory | All Rights Reserved </p>
+  </div>
+</footer>
 
 <app-modal [(opened)]='isModalOpen' [prediction]='result' (openedChange)="resetUser()"></app-modal>
